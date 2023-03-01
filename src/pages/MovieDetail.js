@@ -15,6 +15,7 @@ export const MovieDetail = () => {
       setMovie(json);
     }
     fetchMovie();
+    // eslint-disable-next-line
   }, [])
   return (
     <main>
