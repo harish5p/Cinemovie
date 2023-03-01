@@ -19,10 +19,10 @@ export const MovieDetail = () => {
       setMovie(json);
     }
     fetchMovie();
-    
+
   }, [params.id]);
 
- 
+
 
 
   return (
@@ -50,31 +50,43 @@ export const MovieDetail = () => {
             <span className="text-gray-900 dark:text-white">{movie.vote_count} reviews</span>
           </div>
 
-          <p className="my-4">
-                <span className="mr-2 font-bold">Runtime:</span>
-                <span>{movie.runtime} min.</span>
-          </p>
+          {movie.runtime ? (
+            <p className="my-4">
+              <span className="mr-2 font-bold">Runtime:</span>
+              <span>{movie.runtime} min.</span>
+            </p>) : ""}
 
-          <p className="my-4">
-                <span className="mr-2 font-bold">Budget:</span>
-                <span>{movie.budget}</span>
-          </p>
+          {movie.budget ? (
+            <p className="my-4">
+              <span className="mr-2 font-bold">Budget:</span>
+              <span>{movie.budget}</span>
+            </p>
 
-          <p className="my-4">
-                <span className="mr-2 font-bold">Revenue:</span>
-                <span>{movie.revenue}</span>
-          </p>
+          ) : ""}
 
-          <p className="my-4">
-                <span className="mr-2 font-bold">Release Date:</span>
-                <span>{movie.release_date}</span>
-          </p>
+          {movie.revenue ? (
+            <p className="my-4">
+              <span className="mr-2 font-bold">Revenue:</span>
+              <span>{movie.revenue}</span>
+            </p>
 
-          <p className="my-4 ">
-                <span className="mr-2 font-bold">IMDB Code:</span>
-                <a className="underline" href={`https://www.imdb.com/title/${movie.imdb_id}`} target="_blank" rel="noreferrer">{movie.imdb_id}</a>
-          </p>
+          ) : ""}
 
+          {movie.release_date ? (
+            <p className="my-4">
+              <span className="mr-2 font-bold">Release Date:</span>
+              <span>{movie.release_date}</span>
+            </p>
+
+          ) : ""}
+
+          {movie.imdb_id ? (
+            <p className="my-4 ">
+              <span className="mr-2 font-bold">IMDB Code:</span>
+              <a className="underline" href={`https://www.imdb.com/title/${movie.imdb_id}`} target="_blank" rel="noreferrer">{movie.imdb_id}</a>
+            </p>
+
+          ) : ""}
 
         </div>
       </section>
