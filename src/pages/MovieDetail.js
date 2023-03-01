@@ -19,8 +19,8 @@ export const MovieDetail = () => {
       setMovie(json);
     }
     fetchMovie();
-    // eslint-disable-next-line
-  }, []);
+    
+  }, [params.id]);
 
  
 
