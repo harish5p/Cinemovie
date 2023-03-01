@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useTitle } from "../hooks/useTitle";
 
 import Backup from "../assets/images/backup.png";
+
 
 export const MovieDetail = () => {
   const params = useParams();
   const [movie, setMovie] = useState({});
   const image = movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : Backup;
+
+  useTitle(movie.title);
 
   useEffect(() => {
     async function fetchMovie() {
@@ -16,7 +20,11 @@ export const MovieDetail = () => {
     }
     fetchMovie();
     // eslint-disable-next-line
-  }, [])
+  }, []);
+
+ 
+
+
   return (
     <main>
       <section className="flex justify-around flex-wrap py-5">
